@@ -14,5 +14,13 @@
  *= require_self
  */
 
+ $icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+ $fa-font-path: "/bower_components/font-awesome/fonts";
+
+ @import "bootswatch-scss/darkly/variables";
+ @import "bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
  @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
  @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+ @import "bootswatch-scss/darkly/bootswatch";
+
+ @import "font-awesome/scss/font-awesome";
