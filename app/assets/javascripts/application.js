@@ -10,7 +10,4 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery/dist/jquery
-//= require bootstrap-sass-official/assets/javascripts/bootstrap
-//= require angular/angular
 //= require_tree .
