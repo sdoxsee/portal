@@ -133,11 +133,6 @@ module.exports = function (grunt) {
             '.tmp',
             '<%= yeoman.dist %>/*',
             '!<%= yeoman.dist %>/.git*',
-            '!<%= yeoman.dist %>/.openshift',
-            '!<%= yeoman.dist %>/404.html',
-            '!<%= yeoman.dist %>/422.html',
-            '!<%= yeoman.dist %>/500.html',
-            '!<%= yeoman.dist %>/Procfile',
           ]
         }]
       },
@@ -507,6 +502,4 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
-
-  grunt.registerTask('heroku:production', 'build');
 };
