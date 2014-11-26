@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('daftApp')
+angular.module('portalApp')
   .factory('Modal', function ($rootScope, $modal) {
     /**
      * Opens a modal

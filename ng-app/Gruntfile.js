@@ -90,6 +90,7 @@ module.exports = function (grunt) {
           '.tmp',
           '<%= yeoman.client %>'
           ],
+          // http://stackoverflow.com/a/19403176/1098564
           middleware: function (connect, options) {
             var middlewares = [];
             options.base.forEach(function(base) {
@@ -252,7 +253,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       options: {
         // This should be the name of your apps angular module
-        module: 'daftApp',
+        module: 'portalApp',
         htmlmin: {
           collapseBooleanAttributes: true,
           collapseWhitespace: true,

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('daftApp')
+angular.module('portalApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('main', {

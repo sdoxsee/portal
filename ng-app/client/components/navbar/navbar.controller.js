@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('daftApp')
+angular.module('portalApp')
   .controller('NavbarCtrl', function ($scope, $location) {
     $scope.menu = [{
       'title': 'Home',

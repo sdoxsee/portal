@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('daftApp', [
+angular.module('portalApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
