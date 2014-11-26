@@ -1,8 +1,9 @@
 {
   "name": "portal",
   "version": "0.0.0",
+  "description": "Plan Member Portal for Nomad",
   "private": true,
-  "devDependencies": {
+  "dependencies": {
     "grunt-asset-injector": "^0.1.0",
     "grunt-autoprefixer": "^2.0.0",
     "grunt-concurrent": "^1.0.0",
@@ -12,8 +13,6 @@
     "grunt-contrib-sass": "^0.8.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-wiredep": "^2.0.0"
-  },
-  "dependencies": {
     "grunt-angular-templates": "^0.5.7",
     "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-copy": "^0.7.0",

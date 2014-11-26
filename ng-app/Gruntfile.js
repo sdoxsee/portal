@@ -449,18 +449,6 @@ module.exports = function (grunt) {
     },
   });
 
-  // Used for delaying livereload until after server has restarted
-  grunt.registerTask('wait', function () {
-    grunt.log.ok('Waiting for server reload...');
-
-    var done = this.async();
-
-    setTimeout(function () {
-      grunt.log.writeln('Done waiting!');
-      done();
-    }, 1500);
-  });
-
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -475,8 +463,6 @@ module.exports = function (grunt) {
       'autoprefixer',
       'configureProxies',
       'connect:livereload',
-      // 'wait',
-      // 'open',
       'watch'
     ]);
   });
@@ -521,4 +507,6 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.registerTask('heroku:production', 'build');
 };
