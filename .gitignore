@@ -16,7 +16,7 @@
 /tmp
 
 # client files
-public
-client/node_modules
-client/.tmp
-client/bower_components
+ng-app/node_modules
+ng-app/.tmp
+ng-app/.sass-cache
+ng-app/client/bower_components
