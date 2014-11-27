@@ -20,7 +20,5 @@ public
 node_modules
 .tmp
 .sass-cache
-ng-app/node_modules
-ng-app/.tmp
-ng-app/.sass-cache
-ng-app/client/bower_components
+node_modules
+client/bower_components
