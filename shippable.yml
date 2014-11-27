@@ -1,0 +1,23 @@
+# {Rails.root}/shippable.yml
+# shippleable example for rails 4 with mysql
+language: ruby
+
+rvm:
+  - 2.0.0
+
+env:
+  - CI_REPORTS=shippable/testresults COVERAGE_REPORTS=shippable/codecoverage
+
+# ensure the test output and coverage dirs are created
+before_script:
+  - npm install
+  - grunt
+
+# write the rspec tests to the output dir
+script:
+  - bin/rspec -f documentation -o shippable/testresults/results.txt
+
+notifications:
+    email:
+      recipients:
+        - sdoxsee@gmail.com
