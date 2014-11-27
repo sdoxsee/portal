@@ -10,8 +10,9 @@ env:
 
 
 before_install:
-  - npm install -g npm@next # https://github.com/Shippable/support/issues/713
-  
+  - npm update # https://github.com/Shippable/support/issues/713
+  - npm install
+
 # ensure the test output and coverage dirs are created
 before_script:
   - grunt
