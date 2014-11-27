@@ -17,6 +17,9 @@
 
 # client files
 public
+node_modules
+.tmp
+.sass-cache
 ng-app/node_modules
 ng-app/.tmp
 ng-app/.sass-cache
