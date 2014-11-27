@@ -10,7 +10,7 @@ env:
 
 
 before_install:
-  - npm update # https://github.com/Shippable/support/issues/713
+  - npm update npm -g # https://github.com/Shippable/support/issues/713
   - npm install
 
 # ensure the test output and coverage dirs are created
