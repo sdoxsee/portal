@@ -18,6 +18,17 @@ module.exports = function (grunt) {
       client: require('./bower.json').appPath || 'client',
       dist: 'public'
     },
+    shell: {
+      startRailsServer: {
+        command: 'rails server',
+        options: {
+          // If async: true were omitted, the rails server
+          // command would prevent subsequent commands
+          // from running.
+          async: true
+        }
+      }
+    },
     watch: {
       injectJS: {
         files: [
@@ -450,6 +461,7 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
+      'shell:startRailsServer',
       'clean:server',
       'injector:sass',
       'concurrent:server',
