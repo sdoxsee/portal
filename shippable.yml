@@ -8,9 +8,12 @@ rvm:
 env:
   - CI_REPORTS=shippable/testresults COVERAGE_REPORTS=shippable/codecoverage
 
+
+before_install:
+  - npm install -g npm@next # https://github.com/Shippable/support/issues/713
+  
 # ensure the test output and coverage dirs are created
 before_script:
-  - npm install -g npm@next # https://github.com/Shippable/support/issues/713
   - grunt
 
 # write the rspec tests to the output dir
