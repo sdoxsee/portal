@@ -22,6 +22,4 @@ script:
   - bin/rspec -f documentation -o shippable/testresults/results.txt
 
 notifications:
-    email:
-      recipients:
-        - sdoxsee@gmail.com
+  email: false
