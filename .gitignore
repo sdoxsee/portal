@@ -16,7 +16,7 @@
 /tmp
 
 # client files
-# public
+public
 node_modules
 .tmp
 .sass-cache
