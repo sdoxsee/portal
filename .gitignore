@@ -21,4 +21,4 @@ node_modules
 .tmp
 .sass-cache
 node_modules
-client/bower_components
+ng-app/bower_components
