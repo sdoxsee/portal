@@ -101,7 +101,7 @@ module.exports = function (grunt) {
             livereloadOnError: false,
             spawn: false
         },
-        files: [createFolderGlobs(['*.js','*.less','*.html']),'!_SpecRunner.html','!.grunt'],
+        files: [createFolderGlobs(['*.js','*.scss','*.html']),'!_SpecRunner.html','!.grunt'],
         tasks: [] //all the tasks are run dynamically during the watch event handler
       }
     },
@@ -121,15 +121,17 @@ module.exports = function (grunt) {
         src:['temp']
       }
     },
-    less: {
-      production: {
-        options: {
-        },
-        files: {
-          'temp/app.css': 'app.less'
+
+      sass:       {
+        production:{
+          options:{},
+          files:  {
+            'temp/app.css':'app.scss',
+            'app.css':'app.scss'
+          }
         }
-      }
-    },
+      },
+
     ngtemplates: {
       main: {
         options: {
@@ -233,6 +235,7 @@ module.exports = function (grunt) {
         frameworks: ['jasmine'],
         files: [  //this files data is also updated in the watch handler, if updated change there too
           '<%= dom_munger.data.appjs %>',
+          '<%= ngtemplates.main.dest %>',
           'bower_components/angular-mocks/angular-mocks.js',
           createFolderGlobs('*-spec.js')
         ],
@@ -250,8 +253,8 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('build',['jshint','clean:before','less','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','htmlmin','clean:after']);
-  grunt.registerTask('serve', ['shell:startRailsServer','dom_munger:read','jshint','configureProxies','connect:livereload', 'watch']);
+  grunt.registerTask('build',['jshint','clean:before','sass','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','htmlmin','clean:after']);
+  grunt.registerTask('serve', ['shell:startRailsServer','dom_munger:read','sass','jshint','ngtemplates','configureProxies','connect:livereload', 'watch']);
   grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
 
   grunt.event.on('watch', function(action, filepath) {
@@ -273,7 +276,7 @@ module.exports = function (grunt) {
 
       //if the spec exists then lets run it
       if (grunt.file.exists(spec)) {
-        var files = [].concat(grunt.config('dom_munger.data.appjs'));
+        var files = [].concat(grunt.config('dom_munger.data.appjs'), grunt.config('ngtemplates.main.dest'));
         files.push('bower_components/angular-mocks/angular-mocks.js');
         files.push(spec);
         grunt.config('karma.options.files', files);
@@ -286,6 +289,12 @@ module.exports = function (grunt) {
     if (filepath === 'index.html') {
       tasksToRun.push('dom_munger:read');
     }
+
+
+    if (filepath.lastIndexOf('.scss') !== -1 && filepath.lastIndexOf('.scss') === filepath.length - 5) {
+      tasksToRun.push('sass');
+    }
+
 
     grunt.config('watch.main.tasks',tasksToRun);
 

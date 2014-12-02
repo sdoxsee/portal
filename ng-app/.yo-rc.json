@@ -1,6 +1,7 @@
 {
   "generator-cg-angular": {
     "uirouter": true,
+    "sass": true,
     "partialDirectory": "partial/",
     "modalDirectory": "partial/",
     "directiveDirectory": "directive/",
@@ -12,10 +13,10 @@
         "marker": "<!-- Add New Component JS Above -->",
         "template": "<script src=\"<%= filename %>\"></script>"
       },
-      "less": {
+      "scss": {
         "relativeToModule": true,
-        "file": "<%= module %>.less",
-        "marker": "/* Add Component LESS Above */",
+        "file": "<%= module %>.scss",
+        "marker": "/* Add Component SASS Above */",
         "template": "@import \"<%= filename %>\";"
       }
     }
