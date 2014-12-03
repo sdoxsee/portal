@@ -5,6 +5,7 @@ body {
   background-color: pink;
 }
 /* Component SASS */
+@import "partial/home/home.scss";
 /* Add Component SASS Above */
 
 /* Required for Angular UI Bootstrap */

@@ -2,6 +2,11 @@ angular.module('client', ['ui.bootstrap','ui.utils','ui.router','ngAnimate']);
 
 angular.module('client').config(function($stateProvider, $urlRouterProvider) {
 
+    $stateProvider.state('home', {
+        url: '/home',
+        templateUrl: 'partial/home/home.html',
+        controller: 'HomeCtrl'
+    });
     /* Add New States Above */
     $urlRouterProvider.otherwise('/home');
 

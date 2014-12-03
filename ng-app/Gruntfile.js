@@ -49,17 +49,17 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
-    shell: {
-      startRailsServer: {
-        command: 'rails server',
-        options: {
-          // If async: true were omitted, the rails server
-          // command would prevent subsequent commands
-          // from running.
-          async: true
-        }
-      }
-    },
+    // shell: {
+    //   startRailsServer: {
+    //     command: 'rails server',
+    //     options: {
+    //       // If async: true were omitted, the rails server
+    //       // command would prevent subsequent commands
+    //       // from running.
+    //       async: true
+    //     }
+    //   }
+    // },
 
     connect: {
       proxies : [
@@ -245,7 +245,8 @@ module.exports = function (grunt) {
         singleRun: true
       },
       all_tests: {
-        browsers: ['PhantomJS','Chrome','Firefox']
+        browsers: ['PhantomJS']
+        // browsers: ['PhantomJS','Chrome','Firefox']
       },
       during_watch: {
         browsers: ['PhantomJS']
@@ -254,7 +255,9 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('build',['jshint','clean:before','sass','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','htmlmin','clean:after']);
-  grunt.registerTask('serve', ['shell:startRailsServer','dom_munger:read','sass','jshint','ngtemplates','configureProxies','connect:livereload', 'watch']);
+  grunt.registerTask('serve', [
+  // 'shell:startRailsServer',
+  'dom_munger:read','sass','jshint','ngtemplates','configureProxies','connect:livereload', 'watch']);
   grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
 
   grunt.event.on('watch', function(action, filepath) {
