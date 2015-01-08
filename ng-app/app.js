@@ -1,4 +1,4 @@
-angular.module('client', ['ui.bootstrap','ui.utils','ui.router','ngAnimate']);
+angular.module('client', ['ui.bootstrap', 'ui.utils', 'ui.router', 'ngAnimate', 'profile', 'enrollment']);
 
 angular.module('client').config(function($stateProvider, $urlRouterProvider) {
 

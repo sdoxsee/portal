@@ -19,6 +19,16 @@
         "marker": "/* Add Component SASS Above */",
         "template": "@import \"<%= filename %>\";"
       }
-    }
+    },
+    "modules": [
+      {
+        "name": "profile",
+        "file": "profile/profile.js"
+      },
+      {
+        "name": "enrollment",
+        "file": "enrollment/enrollment.js"
+      }
+    ]
   }
 }

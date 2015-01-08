@@ -6,6 +6,8 @@ body {
 }
 /* Component SASS */
 @import "partial/home/home.scss";
+@import "profile/profile.scss";
+@import "enrollment/enrollment.scss";
 /* Add Component SASS Above */
 
 /* Required for Angular UI Bootstrap */

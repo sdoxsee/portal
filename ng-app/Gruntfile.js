@@ -122,15 +122,15 @@ module.exports = function (grunt) {
       }
     },
 
-      sass:       {
-        production:{
-          options:{},
-          files:  {
-            'temp/app.css':'app.scss',
-            'app.css':'app.scss'
-          }
+    sass: {
+      production:{
+        options:{},
+        files:  {
+          'temp/app.css':'app.scss',
+          'app.css':'app.scss'
         }
-      },
+      }
+    },
 
     ngtemplates: {
       main: {
@@ -251,13 +251,32 @@ module.exports = function (grunt) {
       during_watch: {
         browsers: ['PhantomJS']
       },
+    },
+
+    injector: {
+      // Inject component css into index.html
+      css: {
+        options: {
+          transform: function(filePath) {
+            filePath = filePath.replace('/temp/', '');
+            return '<link rel="stylesheet" href="' + filePath + '">';
+          },
+          starttag: '<!-- injector:css -->',
+          endtag: '<!-- endinjector -->'
+        },
+        files: {
+          '<%= yeoman.app %>/index.html': [
+          '<%= yeoman.app %>/temp/app.css'
+          ]
+        }
+      }
     }
   });
 
   grunt.registerTask('build',['jshint','clean:before','sass','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','htmlmin','clean:after']);
   grunt.registerTask('serve', [
   // 'shell:startRailsServer',
-  'dom_munger:read','sass','jshint','ngtemplates','configureProxies','connect:livereload', 'watch']);
+  'dom_munger:read','sass','injector:css','jshint','ngtemplates','configureProxies','connect:livereload', 'watch']);
   grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
 
   grunt.event.on('watch', function(action, filepath) {
