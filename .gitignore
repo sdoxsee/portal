@@ -4,9 +4,14 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
-node_modules
-ng-app/bower_components/
-ng-app/.sass-cache/
+client/node_modules/
+client/bower_components/
+client/.sass-cache/
+client/temp/
+client/_SpecRunner.html
+client/.DS_Store
+client/test-results.xml
+
 public
 
 # Ignore all logfiles and tempfiles.

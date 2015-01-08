@@ -108,7 +108,8 @@ module.exports = function (grunt) {
     jshint: {
       main: {
         options: {
-            jshintrc: '.jshintrc'
+            jshintrc: true,
+            ignores: ['bower_components/**/*.js','node_modules/**/*.js']
         },
         src: createFolderGlobs('*.js')
       }
