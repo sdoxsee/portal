@@ -278,6 +278,7 @@ module.exports = function (grunt) {
   // 'shell:startRailsServer',
   'dom_munger:read','sass','injector:css','jshint','ngtemplates','configureProxies','connect:livereload', 'watch']);
   grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
+  grunt.registerTask('heroku:production', 'build');
 
   grunt.event.on('watch', function(action, filepath) {
     //https://github.com/gruntjs/grunt-contrib-watch/issues/156
